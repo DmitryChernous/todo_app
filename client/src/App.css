@@ -11,3 +11,9 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
+.app {
+  background-color: transparent;
+  border: 2px solid white;
+  width: 100%;
+}

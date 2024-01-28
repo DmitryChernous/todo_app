@@ -1,0 +1,8 @@
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
