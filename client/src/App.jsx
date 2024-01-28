@@ -4,6 +4,7 @@ import ToDo_List from './components/ToDo_List'
 import Add_todo_item from './components/add_todo_item'
 import Search_todos from './components/Search_todos'
 import Layout from './components/Layout'
+import Header from './components/Header'
 
 const initTodoList = [
   { id: 1, title: 'Очень важное дело', complited: false, category: '' },
@@ -16,7 +17,7 @@ function App() {
   const [todoList, setTodoList] = useState(initTodoList)
   const [category, setCategory] = useState('')
   const [searchString, setSearchString] = useState('')
-  
+
   // переделать со строк на объекты чтобы позволить показывать текщее значение при редактировании задачи
   const [todoListCategories, setTodoListCategories] = useState(['Все', 'Дом', 'Работа', 'Дача'])
 
@@ -81,7 +82,7 @@ function App() {
     <>
       <Layout>
         <div className='app'>
-          <h1>Список задач</h1>
+          <Header />
           <Add_todo_item 
             setTodoList={addTodo} 
             cats={todoListCategories} 

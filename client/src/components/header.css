@@ -1,0 +1,14 @@
+.app-header{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.app-title{
+    grid-column-start: 3;
+    grid-column-end: 7;
+}
+
+.app-settings{
+    grid-column-start: 7;
+    grid-column-end: 9;
+}
