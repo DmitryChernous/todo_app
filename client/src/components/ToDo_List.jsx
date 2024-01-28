@@ -2,7 +2,7 @@ import ToDo_item from './ToDo_item'
 import './todo_list.css'
 
 
-export default function ToDo_List({ todoList, deleteTodo, editTodo }) {
+export default function ToDo_List({ todoList, deleteTodo, editTodo, cats }) {
 
     //console.log(todoList)
 
@@ -11,9 +11,8 @@ export default function ToDo_List({ todoList, deleteTodo, editTodo }) {
             {todoList.map(el => {
                 return <ToDo_item
                     key={el.id}
-                    id={el.id}
-                    complited={el.complited}
-                    title={el.title}
+                    params={el}
+                    cats={cats}
                     onDelete={deleteTodo}
                     onEdit={editTodo}
                 />

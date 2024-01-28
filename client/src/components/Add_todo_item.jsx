@@ -1,9 +1,10 @@
 import { useState } from "react"
 import './add_todo_item.css'
 
-export default function Add_todo_item({setTodoList}) {
+export default function Add_todo_item({setTodoList, cats}) {
 
     let [taskTitle, setTaskTitile] = useState('')
+    let [taskCat, setTaskCat] = useState('')
 
     function handleTitleChange(event) {
         setTaskTitile(event.target.value)
@@ -17,10 +18,15 @@ export default function Add_todo_item({setTodoList}) {
                 value={taskTitle}
                 onChange={handleTitleChange}
             />
+            <select onChange={e => setTaskCat(e.target.value)}>
+                {cats.map(el => {
+                    return <option key={el}>{el}</option>
+                })}
+            </select>
             <button
                 onClick={() => {
                     setTaskTitile('')
-                    setTodoList(taskTitle)
+                    setTodoList({taskTitle, taskCat})
                     }}>
                 Добавить
             </button>
