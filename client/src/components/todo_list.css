@@ -4,5 +4,6 @@
     background-color: transparent;
     align-items: flex-start;
     justify-content: space-between;
-    width: 100%;
+    padding: 5%;
+    width: 90%;
 }

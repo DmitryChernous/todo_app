@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import './App.css'
 import ToDo_List from './components/ToDo_List'
 import Add_todo_item from './components/add_todo_item'
+import Search_todos from './components/Search_todos'
 import Layout from './components/Layout'
 
 const initTodoList = [
@@ -15,6 +16,7 @@ const initTodoList = [
 function App() {
 
   const [todoList, setTodoList] = useState(initTodoList)
+  const [searchString, setSearchString] = useState('')
 
   let maxId = 0
 
@@ -25,6 +27,14 @@ function App() {
       }
     })
   }
+
+  const filteredTodoList = useMemo(()=> {
+    if (searchString) {
+      return [...todoList].filter((el) => el.title.toLowerCase().includes(searchString.toLowerCase()))
+    }
+    return todoList
+  }, [todoList, searchString])
+
 
   function addTodo(todoItem) {
     calculateMaxId()
@@ -58,7 +68,8 @@ function App() {
         <div className='app'>
           <h1>Список задач</h1>
           <Add_todo_item setTodoList={addTodo} />
-          <ToDo_List todoList={todoList} deleteTodo={handleDeleteTodo} editTodo={handleEditTodo}/>
+          <Search_todos searchString={searchString} findTodos={setSearchString} />
+          <ToDo_List todoList={filteredTodoList} deleteTodo={handleDeleteTodo} editTodo={handleEditTodo} />
         </div>
       </Layout>
     </>

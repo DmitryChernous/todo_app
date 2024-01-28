@@ -1,0 +1,8 @@
+.search-todo-section{
+    margin: 5%;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
